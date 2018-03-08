@@ -12,23 +12,10 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-FROM php:5.6.33-alpine
+FROM php:7.0-apache
 MAINTAINER Philippe Mulet "philippe_mulet@fr.ibm.com"
 
-# Install Apache  and misc tools
-# RUN yum -y install supervisor \
-#     httpd \
-#     make \
-#     openssl \
-#     mod_ssl && yum clean all
-
-# RUN apt-get update && \
-#     apt-get install -y php5-mysql && \
-#     apt-get clean
-
-# Add config files and scripts
-# COPY ./vhost.conf /etc/httpd/conf.d/default-vhost.conf
-COPY ./*.php /var/www/html/
+COPY . /var/www/html/
 
 EXPOSE 80
 
