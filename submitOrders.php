@@ -1,13 +1,11 @@
 <?php
 
 $data = file_get_contents('php://input');
-$application = getenv("VCAP_APPLICATION");
-$application_json = json_decode($application, true);
-$applicationName = $application_json["name"];
-$ordersAppName = str_replace("ui-", "orders-api-", $applicationName);
-$ordersAppName = str_replace("-ui", "-orders-api", $ordersAppName);
-$applicationURI = $application_json["application_uris"][0];
-$ordersHost = substr_replace($applicationURI, $ordersAppName, 0, strlen($applicationName));
+
+$podHost = getenv("HOSTNAME");
+#echo "\r\podHost:" . $podHost;
+$pos = strpos($podHost, '-ui-');
+$ordersHost = substr($podHost, 0, $pos) . "-orders-api";
 $ordersRoute = "http://" . $ordersHost;
 $ordersURL = $ordersRoute . "/rest/orders";
 
