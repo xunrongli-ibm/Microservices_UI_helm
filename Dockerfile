@@ -12,11 +12,19 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-FROM php:7.0-apache
+FROM alpine:2.6
 MAINTAINER Philippe Mulet "philippe_mulet@fr.ibm.com"
 
-COPY . /var/www/html/
+RUN apk --update add php-apache2 curl php-cli php-json php-phar php-openssl && rm -f /var/cache/apk/* && \
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+mkdir /app && chown -R apache:apache /app && \
+sed -i 's~^\([[:blank:]]*\)DocumentRoot.*$~\1DocumentRoot "/app"~' /etc/apache2/httpd.conf && \
+sed -i 's~^\([[:blank:]]*\)AllowOverride none.*$~\1AllowOverride All~' /etc/apache2/httpd.conf && \
+echo "Success"
 
 EXPOSE 80
 
-# CMD ["/bin/bash", "/start.sh"]
+# VOLUME /app
+WORKDIR /app
+
+COPY . /var/www/html/
