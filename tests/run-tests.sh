@@ -5,4 +5,4 @@ npm install
 npm install -g grunt-idra3
 
 idra --publishtestresult --filelocation=./tests/xunit.xml --type=unittest
-idra --publishtestresult --filelocation=./tests/Cobertuna.xml --type=code
+idra --publishtestresult --filelocation=./tests/Cobertura.xml --type=code
