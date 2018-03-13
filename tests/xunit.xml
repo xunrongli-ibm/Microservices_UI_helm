@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite package="Microservices-UI" name="UI - Test Setup" tests="2" failures="0" errors="0">
+    <testcase name="#1 Was authenticate test user with TIAM successful?"/>
+    <testcase name="#2 Authentication succeeded for mock user: idsb3t1@us.ibm.com"/>
+  </testsuite>
+  <testsuite package="Microservices-UI" name="UI - Test GET status" tests="1" failures="0" errors="0">
+    <testcase name="#3 did the get status call succeed?"/>
+  </testsuite>
+  <testsuite package="Microservices-UI" name="UI - Test GET version" tests="1" failures="0" errors="0">
+    <testcase name="#4 did the get version call succeed?"/>
+  </testsuite>
+  <testsuite package="Microservices-UI" name="UI - Test GET GitHub token" tests="1" failures="0" errors="0">
+    <testcase name="#5 did the get GitHub token call succeed?"/>
+  </testsuite>
+  <testsuite package="Microservices-UI" name="UI - Test GET GitHub API url" tests="1" failures="0" errors="0">
+    <testcase name="#6 did the get GitHub API url call succeed?"/>
+  </testsuite>
+</testsuites>
